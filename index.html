@@ -1,552 +1,383 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MachAI • Budol Links</title>
-  <meta name="description" content="MachAI curated Shopee links + nostalgic finds." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg1:#0f172a;      /* blue */
-      --bg2:#1e1b4b;      /* violet */
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.14);
-      --text:#fff;
-      --muted:rgba(255,255,255,.75);
+<title>MachAI • Product Links</title>
 
-      --blue:#38bdf8;
-      --violet:#8b5cf6;
+<style>
 
-      --shopee:#ee4d2d;   /* orange */
-      --tiktok:#000;      /* black */
-    }
+:root{
+--bg1:#0f172a;
+--bg2:#1e1b4b;
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background: linear-gradient(160deg, var(--bg1), var(--bg2));
-      color:var(--text);
-      min-height:100vh;
-      line-height:1.35;
-    }
+--blue:#38bdf8;
+--violet:#8b5cf6;
 
-    .wrap{ max-width:980px; margin:auto; padding:20px; }
+--shopee:#ee4d2d;
+--tiktok:#000000;
 
-    .shell{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:20px;
-      padding:18px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 40px rgba(139,92,246,.18);
-    }
+--text:#ffffff;
+--muted:rgba(255,255,255,.75);
+}
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:12px;
-    }
+*{box-sizing:border-box}
 
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+background:linear-gradient(160deg,var(--bg1),var(--bg2));
+color:var(--text);
+min-height:100vh;
+}
 
-    /* Logo */
-    .logo{
-      width:56px;
-      height:56px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 0 18px rgba(139,92,246,.35);
-      flex:0 0 auto;
-    }
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+.wrap{
+max-width:980px;
+margin:auto;
+padding:20px;
+}
 
-    h1{ margin:0; font-size:18px; }
-    .sub{ margin-top:4px; font-size:13px; opacity:.9; }
-    .note{ margin-top:6px; font-size:12px; color:var(--muted); }
+.shell{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:20px;
+padding:18px;
+backdrop-filter:blur(10px);
+}
 
-    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; }
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+}
 
-    a.cta{
-      padding:10px 14px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:900;
-      font-size:13px;
-      display:inline-block;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color:#fff;
-    }
-    a.cta.primary{
-      background: linear-gradient(90deg, var(--blue), var(--violet));
-      border:none;
-      box-shadow: 0 0 12px rgba(139,92,246,.35);
-    }
-    a.cta.black{
-      background: #000;
-      border:1px solid rgba(255,255,255,.12);
-    }
+.brand{
+display:flex;
+gap:12px;
+align-items:center;
+}
 
-    .tools{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+.logo{
+width:56px;
+height:56px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.2);
+}
 
-    input{
-      flex:1;
-      min-width:230px;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.2);
-      background: rgba(255,255,255,.06);
-      color:#fff;
-      outline:none;
-    }
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-    .sectionTitle{
-      margin-top:16px;
-      font-weight:900;
-      font-size:14px;
-      letter-spacing:.2px;
-    }
+h1{
+margin:0;
+font-size:18px;
+}
 
-    .grid{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-    @media (min-width:760px){
-      .grid{ grid-template-columns:repeat(3,1fr); }
-    }
+.sub{
+font-size:13px;
+opacity:.9;
+}
 
-    .item{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:18px;
-      padding:12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      transition:.2s;
-      min-height: 290px;
-    }
-    .item:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(139,92,246,.25);
-    }
+.note{
+font-size:12px;
+opacity:.7;
+margin-top:4px;
+}
 
-    .img{
-      width:100%;
-      height:140px;
-      border-radius:12px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-    }
-    .img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+.cta{
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:800;
+font-size:13px;
+background:#000;
+color:white;
+}
 
-    .badgeRow{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
+.tools{
+margin-top:14px;
+}
 
-    .badge{
-      font-size:11px;
-      padding:6px 9px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
-      white-space:nowrap;
-    }
-    .badge.hot{
-      border:none;
-      background: linear-gradient(90deg, var(--blue), var(--violet));
-      box-shadow: 0 0 10px rgba(139,92,246,.35);
-    }
-    .badge.viral{
-      border:1px solid rgba(238,77,45,.35);
-      background: rgba(238,77,45,.15);
-    }
+input{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.2);
+background:rgba(255,255,255,.05);
+color:white;
+}
 
-    .title{ font-weight:900; font-size:14px; }
-    .desc{ font-size:12px; color:var(--muted); }
+.sectionTitle{
+margin-top:18px;
+font-weight:900;
+font-size:14px;
+}
 
-    .priceRow{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
-      margin-top:2px;
-    }
-    .price{
-      font-weight:900;
-      font-size:14px;
-      color:#fff;
-    }
-    .priceTag{
-      font-size:11px;
-      padding:5px 8px;
-      border-radius:999px;
-      border:1px solid rgba(238,77,45,.35);
-      background: rgba(238,77,45,.15);
-    }
+.grid{
+margin-top:12px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
 
-    .btns{
-      margin-top:auto;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
+@media (min-width:760px){
+.grid{grid-template-columns:repeat(3,1fr)}
+}
 
-    a.button{
-      text-decoration:none;
-      font-weight:900;
-      font-size:13px;
-      padding:10px 12px;
-      border-radius:12px;
-      display:inline-block;
-      text-align:center;
-      flex:1;
-    }
+.item{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:16px;
+padding:12px;
+display:flex;
+flex-direction:column;
+gap:10px;
+transition:.2s;
+}
 
-    /* Shopee button = orange */
-    a.button.buy{
-      background: var(--shopee);
-      color:#fff;
-      box-shadow: 0 0 12px rgba(238,77,45,.18);
-    }
+.item:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(139,92,246,.3);
+}
 
-    /* TikTok button = black */
-    a.button.tiktok{
-      background: var(--tiktok);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.12);
-    }
+.img{
+height:130px;
+border-radius:12px;
+overflow:hidden;
+}
 
-    .empty{
-      grid-column:1/-1;
-      padding:14px;
-      border:1px dashed rgba(255,255,255,.18);
-      border-radius:18px;
-      opacity:.85;
-    }
+.img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-    .footer{
-      margin-top:16px;
-      font-size:12px;
-      opacity:.75;
-    }
+.badges{
+display:flex;
+gap:6px;
+flex-wrap:wrap;
+}
 
-    /* tiny analytics panel */
-    details.analytics{
-      margin-top:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      border-radius:14px;
-      padding:10px 12px;
-    }
-    details.analytics summary{
-      cursor:pointer;
-      font-weight:900;
-      list-style:none;
-    }
-    details.analytics summary::-webkit-details-marker{ display:none; }
-    .stats{
-      margin-top:10px;
-      display:grid;
-      gap:10px;
-    }
-    .statBox{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius:14px;
-      padding:10px;
-      font-size:12px;
-    }
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-    .row{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .btnMini{
-      margin-top:10px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-    button{
-      border:none;
-      cursor:pointer;
-      font-weight:900;
-      font-size:12px;
-      padding:10px 12px;
-      border-radius:12px;
-      color:#fff;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-    }
-    button.danger{
-      background: rgba(238,77,45,.15);
-      border-color: rgba(238,77,45,.35);
-    }
-  </style>
+.badge{
+font-size:11px;
+padding:4px 8px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+}
+
+.trending{
+background:linear-gradient(90deg,var(--blue),var(--violet));
+}
+
+.viral{
+background:#ee4d2d33;
+border:1px solid #ee4d2d;
+}
+
+.title{
+font-weight:800;
+font-size:14px;
+}
+
+.desc{
+font-size:12px;
+opacity:.8;
+}
+
+.btns{
+margin-top:auto;
+display:flex;
+gap:8px;
+}
+
+.button{
+flex:1;
+text-align:center;
+padding:10px;
+border-radius:10px;
+font-weight:800;
+font-size:13px;
+text-decoration:none;
+}
+
+.buy{
+background:var(--shopee);
+color:white;
+}
+
+.tiktok{
+background:var(--tiktok);
+color:white;
+}
+
+.footer{
+margin-top:16px;
+font-size:12px;
+opacity:.7;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="shell">
-      <div class="top">
-        <div class="brand">
-          <!-- ✅ Upload logo.png in your repo -->
-          <div class="logo">
-            <img src="logo.png" alt="MachAI logo" />
-          </div>
-          <div>
-            <h1>MachAI • Budol Links</h1>
-            <div class="sub">Nostalgia Factory 🧠✨ • Viral 90s snacks & Shopee finds</div>
-            <div class="note">✅ 13K followers • 400K likes • videos up to 2.5M views</div>
-          </div>
-        </div>
 
-        <div class="ctaRow">
-          <a class="cta primary" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">Follow on TikTok</a>
-          <a class="cta black" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">@mach.ai</a>
-        </div>
-      </div>
+<div class="wrap">
+<div class="shell">
 
-      <div class="tools">
-        <input id="q" placeholder="Search (e.g. Mik-Mik, Nata, Oishi)..." />
-      </div>
+<div class="top">
 
-      <div class="sectionTitle">⭐ Trending Products</div>
-      <div class="grid" id="featured"></div>
+<div class="brand">
 
-      <div class="sectionTitle">🛒 All Products</div>
-      <div class="grid" id="list"></div>
+<div class="logo">
+<img src="logo.png">
+</div>
 
-      <!-- 📊 Click tracking (local) -->
-      <details class="analytics">
-        <summary>📊 Click Tracking (local)</summary>
-        <div class="stats" id="stats"></div>
-        <div class="btnMini">
-          <button id="exportBtn">Export clicks (copy)</button>
-          <button class="danger" id="resetBtn">Reset clicks</button>
-        </div>
-        <div class="note">
-          Note: This tracking is saved on the viewer’s device (browser localStorage). For real tracking across all visitors, you’ll need GA4 or server-side tracking.
-        </div>
-      </details>
+<div>
+<h1>MachAI • Product Links</h1>
+<div class="sub">Nostalgia Factory • Viral 90s Snacks</div>
+<div class="note">13K followers • 2.5M views</div>
+</div>
 
-      <div class="footer">
-        Disclosure: Some links may be affiliate links. If you buy through them, I may earn a small commission at no extra cost to you.
-      </div>
-    </div>
-  </div>
+</div>
 
-  <script>
-    // ✅ EDIT: Replace Shopee links + prices
-    // ✅ Images: uploaded in your repo (case-sensitive)
-    const items = [
-      {
-        id: "nata",
-        title: "Nata de Coco (Assorted)",
-        cat: "nostalgia",
-        desc: "Classic jelly snack. Perfect pang nostalgia content.",
-        link: "https://shopee.ph/",
-        image: "nata.png",
-        extra: "Viral snack",
-        price: "₱39",
-        tags: ["nostalgia", "trending", "viralTikTok"]
-      },
-      {
-        id: "mikmik",
-        title: "Mik-Mik Milk Candy",
-        cat: "nostalgia",
-        desc: "Powder milk candy ng 90s kids. High recall sa 30s audience.",
-        link: "https://shopee.ph/",
-        image: "mikmik.JPG",
-        extra: "Classic budol",
-        price: "₱45",
-        tags: ["nostalgia", "trending", "viralTikTok"]
-      },
-      {
-        id: "sweetcorn",
-        title: "Sweet Corn Snack",
-        cat: "nostalgia",
-        desc: "Budget nostalgic snack. Pang meryenda vibes.",
-        link: "https://shopee.ph/",
-        image: "sweetcorn.png",
-        extra: "Under ₱99",
-        price: "₱29",
-        tags: ["nostalgia", "budget"]
-      }
-    ];
+<a class="cta" href="https://www.tiktok.com/@mach.ai" target="_blank">
+TikTok Profile
+</a>
 
-    const q = document.getElementById("q");
-    const list = document.getElementById("list");
-    const featured = document.getElementById("featured");
-    const stats = document.getElementById("stats");
+</div>
 
-    // --------- Click tracking (localStorage) ----------
-    const STORE_KEY = "machai_clicks_v1";
+<div class="tools">
+<input id="search" placeholder="Search products...">
+</div>
 
-    function readClicks(){
-      try { return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); }
-      catch { return {}; }
-    }
+<div class="sectionTitle">⭐ Trending Products</div>
+<div class="grid" id="featured"></div>
 
-    function writeClicks(obj){
-      localStorage.setItem(STORE_KEY, JSON.stringify(obj));
-    }
+<div class="sectionTitle">🛒 All Products</div>
+<div class="grid" id="list"></div>
 
-    function incClick(itemId, type){
-      const data = readClicks();
-      data[itemId] = data[itemId] || { shopee: 0, tiktok: 0, last: "" };
-      data[itemId][type] = (data[itemId][type] || 0) + 1;
-      data[itemId].last = new Date().toISOString();
-      writeClicks(data);
-      renderStats();
-    }
+<div class="footer">
+Some links may be affiliate links.
+</div>
 
-    function renderStats(){
-      const data = readClicks();
-      const rows = items.map(it => {
-        const d = data[it.id] || { shopee: 0, tiktok: 0, last: "" };
-        return `
-          <div class="statBox">
-            <div class="row">
-              <div><b>${escapeHtml(it.title)}</b></div>
-              <div class="mono">Shopee: ${d.shopee || 0} • TikTok: ${d.tiktok || 0}</div>
-            </div>
-            <div class="note mono">id: ${it.id}${d.last ? " • last: " + d.last : ""}</div>
-          </div>
-        `;
-      }).join("");
-      stats.innerHTML = rows || `<div class="statBox">No data yet.</div>`;
-    }
+</div>
+</div>
 
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      localStorage.removeItem(STORE_KEY);
-      renderStats();
-      alert("Clicks reset (local).");
-    });
+<script>
 
-    document.getElementById("exportBtn").addEventListener("click", async () => {
-      const data = readClicks();
-      const text = JSON.stringify(data, null, 2);
-      try{
-        await navigator.clipboard.writeText(text);
-        alert("Copied clicks JSON to clipboard!");
-      }catch{
-        prompt("Copy this:", text);
-      }
-    });
+const items=[
 
-    // --------- Render cards ----------
-    function render(){
-      const query = (q.value || "").toLowerCase().trim();
+{
+id:"nata",
+title:"Nata de Coco",
+desc:"Classic jelly snack from the 90's",
+image:"nata.png",
+link:"https://shopee.ph/",
+tags:["trending","viral"]
+},
 
-      const matches = items.filter(x => {
-        const hay = (x.title + " " + x.desc + " " + (x.extra||"")).toLowerCase();
-        return !query || hay.includes(query);
-      });
+{
+id:"mikmik",
+title:"Mik-Mik Milk Candy",
+desc:"Powder milk candy ng 90's kids",
+image:"mikmik.JPG",
+link:"https://shopee.ph/",
+tags:["trending","viral"]
+},
 
-      const featuredItems = items.filter(x => (x.tags || []).includes("trending")).slice(0, 6);
+{
+id:"sweetcorn",
+title:"Sweet Corn Snack",
+desc:"Affordable nostalgic snack",
+image:"sweetcorn.png",
+link:"https://shopee.ph/",
+tags:[]
+}
 
-      featured.innerHTML = featuredItems.map(x => cardHtml(x, true)).join("")
-        || emptyHtml("No trending products yet.");
+]
 
-      list.innerHTML = matches.map(x => cardHtml(x, false)).join("")
-        || emptyHtml("No results. Try another keyword.");
-    }
+const container=document.getElementById("list")
+const featured=document.getElementById("featured")
+const search=document.getElementById("search")
 
-    function cardHtml(x, isTrending){
-      const trendingBadge = isTrending ? `<span class="badge hot">⭐ Trending</span>` : ``;
-      const viralBadge = (x.tags || []).includes("viralTikTok")
-        ? `<span class="badge viral">🔥 From my viral TikTok</span>`
-        : ``;
+let clicks=JSON.parse(localStorage.getItem("machai_clicks")||"{}")
 
-      return `
-        <div class="item">
-          <div class="img">
-            <img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy">
-          </div>
+function track(id){
+clicks[id]=(clicks[id]||0)+1
+localStorage.setItem("machai_clicks",JSON.stringify(clicks))
+}
 
-          <div class="badgeRow">
-            ${trendingBadge}
-            ${viralBadge}
-            ${x.extra ? `<span class="badge">${escapeHtml(x.extra)}</span>` : ``}
-          </div>
+function card(p){
 
-          <div class="title">${escapeHtml(x.title)}</div>
-          <div class="desc">${escapeHtml(x.desc)}</div>
+let badges=""
 
-          <div class="priceRow">
-            <div class="price">${escapeHtml(x.price || "")}</div>
-            <div class="priceTag">💸 Shopee</div>
-          </div>
+if(p.tags.includes("trending"))
+badges+=`<span class="badge trending">⭐ Trending</span>`
 
-          <div class="btns">
-            <a class="button buy"
-               href="${x.link}"
-               target="_blank"
-               rel="noopener"
-               onclick="incClick('${escapeJs(x.id)}','shopee')">Shopee</a>
+if(p.tags.includes("viral"))
+badges+=`<span class="badge viral">🔥 From my viral TikTok</span>`
 
-            <a class="button tiktok"
-               href="https://www.tiktok.com/@mach.ai"
-               target="_blank"
-               rel="noopener"
-               onclick="incClick('${escapeJs(x.id)}','tiktok')">TikTok</a>
-          </div>
-        </div>
-      `;
-    }
+return`
 
-    function emptyHtml(text){
-      return `<div class="empty">${escapeHtml(text)}</div>`;
-    }
+<div class="item">
 
-    function escapeHtml(s){
-      return String(s ?? "").replace(/[&<>"']/g, m => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-      })[m]);
-    }
-    function escapeJs(s){ return String(s ?? "").replace(/'/g, "\\'"); }
+<div class="img">
+<img src="${p.image}">
+</div>
 
-    q.addEventListener("input", render);
+<div class="badges">${badges}</div>
 
-    render();
-    renderStats();
-  </script>
+<div class="title">${p.title}</div>
+
+<div class="desc">${p.desc}</div>
+
+<div class="btns">
+
+<a class="button buy" href="${p.link}" target="_blank" onclick="track('${p.id}')">
+Shopee
+</a>
+
+<a class="button tiktok" href="https://www.tiktok.com/@mach.ai" target="_blank">
+TikTok
+</a>
+
+</div>
+
+</div>
+
+`
+
+}
+
+function render(){
+
+let q=search.value.toLowerCase()
+
+container.innerHTML=""
+
+items
+.filter(i=>i.title.toLowerCase().includes(q))
+.forEach(p=>container.innerHTML+=card(p))
+
+featured.innerHTML=""
+
+items
+.filter(i=>i.tags.includes("trending"))
+.forEach(p=>featured.innerHTML+=card(p))
+
+}
+
+search.addEventListener("input",render)
+
+render()
+
+</script>
+
 </body>
 </html>
