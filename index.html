@@ -363,20 +363,30 @@ TikTok
 
 function render(){
 
-let q=search.value.toLowerCase()
+let q = search.value.toLowerCase().trim()
 
 container.innerHTML=""
-
-items
-.filter(i=>i.title.toLowerCase().includes(q))
-.forEach(p=>container.innerHTML+=card(p))
-
 featured.innerHTML=""
 
-items
-.filter(i=>i.tags.includes("trending"))
-.forEach(p=>featured.innerHTML+=card(p))
+let results = items.filter(i =>
+  i.title.toLowerCase().includes(q)
+)
 
+if(q === ""){
+
+  // show trending only if no search
+  items
+  .filter(i=>i.tags.includes("trending"))
+  .forEach(p=>featured.innerHTML+=card(p))
+
+  items.forEach(p=>container.innerHTML+=card(p))
+
+}else{
+
+  // show only matched results
+  results.forEach(p=>container.innerHTML+=card(p))
+
+}
 }
 
 search.addEventListener("input",render)
