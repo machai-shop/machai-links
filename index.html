@@ -12,7 +12,7 @@
 --bg1:#0f172a;
 --bg2:#1e1b4b;
 
---blue:#38bdf8;
+--blue:#3b82f6;
 --violet:#8b5cf6;
 
 --shopee:#ee4d2d;
@@ -28,7 +28,10 @@ margin:0;
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 background:linear-gradient(160deg,var(--bg1),var(--bg2));
 color:white;
+min-height:100vh;
 }
+
+/* container */
 
 .wrap{
 max-width:980px;
@@ -40,9 +43,12 @@ padding:20px;
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.12);
 border-radius:20px;
-padding:18px;
+padding:20px;
 backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(139,92,246,.15);
 }
+
+/* header */
 
 .top{
 display:flex;
@@ -88,7 +94,7 @@ opacity:.7;
 margin-top:4px;
 }
 
-/* Header buttons */
+/* TikTok buttons */
 
 .ctaRow{
 display:flex;
@@ -106,6 +112,7 @@ font-size:13px;
 .follow{
 background:linear-gradient(90deg,var(--blue),var(--violet));
 color:white;
+box-shadow:0 0 14px rgba(139,92,246,.4);
 }
 
 .profile{
@@ -113,6 +120,8 @@ background:#000;
 color:white;
 border:1px solid rgba(255,255,255,.15);
 }
+
+/* search */
 
 .search{
 margin-top:16px;
@@ -127,11 +136,15 @@ background:rgba(255,255,255,.05);
 color:white;
 }
 
+/* section */
+
 .sectionTitle{
-margin-top:20px;
+margin-top:22px;
 font-weight:900;
 font-size:14px;
 }
+
+/* grid */
 
 .grid{
 margin-top:12px;
@@ -144,6 +157,8 @@ gap:12px;
 .grid{grid-template-columns:repeat(3,1fr)}
 }
 
+/* card */
+
 .item{
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.12);
@@ -152,6 +167,12 @@ padding:12px;
 display:flex;
 flex-direction:column;
 gap:10px;
+transition:.2s;
+}
+
+.item:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 24px rgba(139,92,246,.25);
 }
 
 .img{
@@ -166,6 +187,8 @@ height:100%;
 object-fit:cover;
 }
 
+/* badge */
+
 .badges{
 display:flex;
 gap:6px;
@@ -176,17 +199,10 @@ flex-wrap:wrap;
 font-size:11px;
 padding:4px 8px;
 border-radius:999px;
-background:rgba(255,255,255,.08);
-}
-
-.trending{
 background:linear-gradient(90deg,var(--blue),var(--violet));
 }
 
-.viral{
-background:#ee4d2d33;
-border:1px solid #ee4d2d;
-}
+/* text */
 
 .title{
 font-weight:800;
@@ -197,6 +213,8 @@ font-size:14px;
 font-size:12px;
 opacity:.8;
 }
+
+/* buttons */
 
 .btns{
 margin-top:auto;
@@ -294,7 +312,7 @@ title:"Nata de Coco",
 desc:"Classic jelly snack from the 90's",
 image:"nata.png",
 link:"https://shopee.ph/",
-tags:["trending","viral"]
+tags:["trending"]
 },
 
 {
@@ -302,7 +320,7 @@ title:"Mik-Mik Milk Candy",
 desc:"Powder milk candy ng 90's kids",
 image:"mikmik.JPG",
 link:"https://shopee.ph/",
-tags:["trending","viral"]
+tags:["trending"]
 },
 
 {
@@ -321,13 +339,10 @@ const search=document.getElementById("search")
 
 function card(p){
 
-let badges=""
+let badge=""
 
 if(p.tags.includes("trending"))
-badges+=`<span class="badge trending">⭐ Trending</span>`
-
-if(p.tags.includes("viral"))
-badges+=`<span class="badge viral">🔥 From my viral TikTok</span>`
+badge=`<span class="badge">⭐ Trending</span>`
 
 return`
 
@@ -337,7 +352,7 @@ return`
 <img src="${p.image}">
 </div>
 
-<div class="badges">${badges}</div>
+<div class="badges">${badge}</div>
 
 <div class="title">${p.title}</div>
 
@@ -369,24 +384,23 @@ container.innerHTML=""
 featured.innerHTML=""
 
 let results = items.filter(i =>
-  i.title.toLowerCase().includes(q)
+i.title.toLowerCase().includes(q)
 )
 
 if(q === ""){
 
-  // show trending only if no search
-  items
-  .filter(i=>i.tags.includes("trending"))
-  .forEach(p=>featured.innerHTML+=card(p))
+items
+.filter(i=>i.tags.includes("trending"))
+.forEach(p=>featured.innerHTML+=card(p))
 
-  items.forEach(p=>container.innerHTML+=card(p))
+items.forEach(p=>container.innerHTML+=card(p))
 
 }else{
 
-  // show only matched results
-  results.forEach(p=>container.innerHTML+=card(p))
+results.forEach(p=>container.innerHTML+=card(p))
 
 }
+
 }
 
 search.addEventListener("input",render)
