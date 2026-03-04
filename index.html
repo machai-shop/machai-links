@@ -7,6 +7,7 @@
 <title>MachAI • Product Links</title>
 
 <style>
+
 :root{
   --bg1:#0f172a;
   --bg2:#1e1b4b;
@@ -23,27 +24,42 @@
 
 *{box-sizing:border-box}
 
-body{
-margin:0;
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-background: radial-gradient(circle at top left,#1e1b4b,#0f172a 70%);
-color:var(--text);
-min-height:100vh;
-line-height:1.35;
-overflow-x:hidden;
+/* FIX SAFARI BACKGROUND SEAM */
+
+html, body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+  background:#0f172a;
 }
 
-body::before{
-content:"";
-position:fixed;
-top:-200px;
-right:-200px;
-width:500px;
-height:500px;
-background:radial-gradient(circle,#8b5cf6,transparent 70%);
-opacity:0.2;
-z-index:-1;
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  line-height:1.35;
 }
+
+/* FULLSCREEN GRADIENT BACKGROUND */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+
+  background:
+    radial-gradient(1200px 900px at 15% 0%, rgba(139,92,246,.45), transparent 60%),
+    radial-gradient(900px 700px at 95% 15%, rgba(59,130,246,.35), transparent 55%),
+    linear-gradient(160deg, #0f172a, #1e1b4b);
+
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+}
+
+/* CONTAINER */
 
 .wrap{
   width:100%;
@@ -59,9 +75,12 @@ z-index:-1;
   padding:20px;
   backdrop-filter:blur(10px);
   box-shadow:0 0 40px rgba(139,92,246,.15);
+
+  transform:translateZ(0);
 }
 
-/* header */
+/* HEADER */
+
 .top{
   display:flex;
   justify-content:space-between;
@@ -109,7 +128,8 @@ h1{
   margin-top:4px;
 }
 
-/* header buttons */
+/* HEADER BUTTONS */
+
 .ctaRow{
   display:flex;
   gap:10px;
@@ -136,7 +156,8 @@ h1{
   border:1px solid rgba(255,255,255,.2);
 }
 
-/* search */
+/* SEARCH */
+
 .search{
   margin-top:16px;
 }
@@ -151,14 +172,16 @@ input{
   outline:none;
 }
 
-/* sections */
+/* SECTIONS */
+
 .sectionTitle{
   margin-top:22px;
   font-weight:900;
   font-size:14px;
 }
 
-/* grid */
+/* GRID */
+
 .grid{
   margin-top:12px;
   display:grid;
@@ -170,7 +193,8 @@ input{
   .grid{grid-template-columns:repeat(3,1fr)}
 }
 
-/* cards */
+/* CARDS */
+
 .item{
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.12);
@@ -202,7 +226,8 @@ input{
   display:block;
 }
 
-/* badge */
+/* BADGE */
+
 .badges{
   display:flex;
   gap:6px;
@@ -214,10 +239,10 @@ input{
   padding:4px 8px;
   border-radius:999px;
   background:linear-gradient(90deg,var(--blue),var(--violet));
-  display:inline-block;
 }
 
-/* text */
+/* TEXT */
+
 .title{
   font-weight:800;
   font-size:14px;
@@ -228,7 +253,8 @@ input{
   opacity:.8;
 }
 
-/* buttons */
+/* BUTTONS */
+
 .btns{
   margin-top:auto;
   display:flex;
@@ -253,7 +279,8 @@ input{
   height:16px;
 }
 
-/* Shopee disabled button */
+/* Shopee disabled */
+
 button.buy{
   background:#666;
   color:#fff;
@@ -263,8 +290,9 @@ button.buy{
 }
 
 /* TikTok button */
+
 a.tiktok{
-  background:var(--tiktok);
+  background:#000;
   color:#fff;
   border:1px solid rgba(255,255,255,.12);
 }
@@ -274,6 +302,7 @@ a.tiktok{
   font-size:12px;
   opacity:.7;
 }
+
 </style>
 </head>
 
