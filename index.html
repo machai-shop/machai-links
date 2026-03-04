@@ -16,10 +16,9 @@
 --violet:#8b5cf6;
 
 --shopee:#ee4d2d;
---tiktok:#000000;
+--tiktok:#000;
 
 --text:#ffffff;
---muted:rgba(255,255,255,.75);
 }
 
 *{box-sizing:border-box}
@@ -28,8 +27,7 @@ body{
 margin:0;
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 background:linear-gradient(160deg,var(--bg1),var(--bg2));
-color:var(--text);
-min-height:100vh;
+color:white;
 }
 
 .wrap{
@@ -51,7 +49,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 flex-wrap:wrap;
-gap:10px;
+gap:12px;
 }
 
 .brand{
@@ -90,18 +88,34 @@ opacity:.7;
 margin-top:4px;
 }
 
+/* Header buttons */
+
+.ctaRow{
+display:flex;
+gap:10px;
+}
+
 .cta{
-padding:10px 14px;
-border-radius:12px;
+padding:12px 18px;
+border-radius:14px;
 text-decoration:none;
 font-weight:800;
 font-size:13px;
-background:#000;
+}
+
+.follow{
+background:linear-gradient(90deg,var(--blue),var(--violet));
 color:white;
 }
 
-.tools{
-margin-top:14px;
+.profile{
+background:#000;
+color:white;
+border:1px solid rgba(255,255,255,.15);
+}
+
+.search{
+margin-top:16px;
 }
 
 input{
@@ -114,7 +128,7 @@ color:white;
 }
 
 .sectionTitle{
-margin-top:18px;
+margin-top:20px;
 font-weight:900;
 font-size:14px;
 }
@@ -138,16 +152,10 @@ padding:12px;
 display:flex;
 flex-direction:column;
 gap:10px;
-transition:.2s;
-}
-
-.item:hover{
-transform:translateY(-4px);
-box-shadow:0 8px 20px rgba(139,92,246,.3);
 }
 
 .img{
-height:130px;
+height:140px;
 border-radius:12px;
 overflow:hidden;
 }
@@ -246,13 +254,21 @@ opacity:.7;
 
 </div>
 
-<a class="cta" href="https://www.tiktok.com/@mach.ai" target="_blank">
-TikTok Profile
+<div class="ctaRow">
+
+<a class="cta follow" href="https://www.tiktok.com/@mach.ai" target="_blank">
+Follow on TikTok
+</a>
+
+<a class="cta profile" href="https://www.tiktok.com/@mach.ai" target="_blank">
+@mach.ai
 </a>
 
 </div>
 
-<div class="tools">
+</div>
+
+<div class="search">
 <input id="search" placeholder="Search products...">
 </div>
 
@@ -274,7 +290,6 @@ Some links may be affiliate links.
 const items=[
 
 {
-id:"nata",
 title:"Nata de Coco",
 desc:"Classic jelly snack from the 90's",
 image:"nata.png",
@@ -283,7 +298,6 @@ tags:["trending","viral"]
 },
 
 {
-id:"mikmik",
 title:"Mik-Mik Milk Candy",
 desc:"Powder milk candy ng 90's kids",
 image:"mikmik.JPG",
@@ -292,7 +306,6 @@ tags:["trending","viral"]
 },
 
 {
-id:"sweetcorn",
 title:"Sweet Corn Snack",
 desc:"Affordable nostalgic snack",
 image:"sweetcorn.png",
@@ -305,13 +318,6 @@ tags:[]
 const container=document.getElementById("list")
 const featured=document.getElementById("featured")
 const search=document.getElementById("search")
-
-let clicks=JSON.parse(localStorage.getItem("machai_clicks")||"{}")
-
-function track(id){
-clicks[id]=(clicks[id]||0)+1
-localStorage.setItem("machai_clicks",JSON.stringify(clicks))
-}
 
 function card(p){
 
@@ -339,7 +345,7 @@ return`
 
 <div class="btns">
 
-<a class="button buy" href="${p.link}" target="_blank" onclick="track('${p.id}')">
+<a class="button buy" href="${p.link}" target="_blank">
 Shopee
 </a>
 
