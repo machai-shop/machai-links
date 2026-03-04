@@ -1,407 +1,318 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MachAI • Budol Links</title>
-  <meta name="description" content="MachAI curated Shopee links + nostalgic finds." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg1:#0f172a;
-      --bg2:#1e1b4b;
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.14);
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.75);
-      --blue:#38bdf8;
-      --violet:#8b5cf6;
-      --radius:18px;
-    }
+<title>MachAI • Product Links</title>
 
-    *{ box-sizing:border-box; }
+<style>
 
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:linear-gradient(160deg,var(--bg1),var(--bg2));
-      color:var(--text);
-      line-height:1.35;
-      min-height:100vh;
-    }
+:root{
+--bg1:#0f172a;
+--bg2:#1e1b4b;
+--text:#ffffff;
+--muted:rgba(255,255,255,.75);
+--shopee:#ee4d2d;
+--tiktok:#000000;
+}
 
-    .wrap{ max-width:980px; margin:auto; padding:20px; }
+*{box-sizing:border-box;}
 
-    .shell{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:20px;
-      padding:18px;
-      backdrop-filter:blur(12px);
-      box-shadow:0 0 40px rgba(139,92,246,.15);
-    }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+background:linear-gradient(160deg,var(--bg1),var(--bg2));
+color:var(--text);
+}
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
+.wrap{
+max-width:980px;
+margin:auto;
+padding:20px;
+}
 
-    .brandline{ display:flex; gap:14px; align-items:center; }
+.shell{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:20px;
+padding:18px;
+backdrop-filter:blur(12px);
+}
 
-    .avatar{
-      width:56px;
-      height:56px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--blue),var(--violet));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      box-shadow:0 0 20px rgba(139,92,246,.5);
-      flex:0 0 auto;
-    }
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+}
 
-    h1{ margin:0; font-size:18px; }
-    .sub{ margin-top:4px; opacity:.9; font-size:13px; }
-    .note{ margin-top:8px; font-size:12px; color:var(--muted); }
+.brand{
+display:flex;
+gap:12px;
+align-items:center;
+}
 
-    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+/* LOGO */
 
-    a.cta{
-      padding:10px 14px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:13px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      color:white;
-      display:inline-block;
-    }
+.logo{
+width:56px;
+height:56px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.2);
+}
 
-    a.cta.primary{
-      background:linear-gradient(90deg,var(--blue),var(--violet));
-      border:none;
-      color:white;
-      box-shadow:0 0 12px rgba(139,92,246,.5);
-    }
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-    .tools{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+/* buttons */
 
-    .pillbar{ display:flex; gap:8px; flex-wrap:wrap; }
+.cta{
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:800;
+font-size:13px;
+}
 
-    .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      cursor:pointer;
-      font-size:13px;
-      user-select:none;
-    }
+.cta.tiktok{
+background:#000;
+color:white;
+}
 
-    .pill.active{
-      background:linear-gradient(90deg,var(--blue),var(--violet));
-      border:none;
-    }
+.cta.email{
+background:rgba(255,255,255,.08);
+color:white;
+}
 
-    input{
-      flex:1;
-      min-width:230px;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.2);
-      background:rgba(255,255,255,.06);
-      color:white;
-      outline:none;
-    }
+.note{
+font-size:12px;
+margin-top:4px;
+opacity:.8;
+}
 
-    .sectionTitle{
-      margin-top:16px;
-      font-weight:900;
-      font-size:14px;
-      letter-spacing:.2px;
-    }
+.tools{
+margin-top:14px;
+}
 
-    .grid{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
+input{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.2);
+background:rgba(255,255,255,.05);
+color:white;
+}
 
-    @media (min-width:760px){
-      .grid{ grid-template-columns:repeat(3,1fr); }
-    }
+.grid{
+margin-top:16px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
 
-    .item{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:18px;
-      padding:12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      transition:.2s;
-      min-height:260px;
-    }
+@media (min-width:760px){
+.grid{grid-template-columns:repeat(3,1fr);}
+}
 
-    .item:hover{
-      transform:translateY(-4px);
-      box-shadow:0 10px 25px rgba(139,92,246,.25);
-    }
+.item{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:16px;
+padding:12px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
 
-    .img{
-      width:100%;
-      height:130px;
-      border-radius:12px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-    }
+.img{
+height:130px;
+border-radius:12px;
+overflow:hidden;
+}
 
-    .img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+.img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-    .badgeRow{ display:flex; gap:8px; flex-wrap:wrap; }
+.title{
+font-weight:800;
+font-size:14px;
+}
 
-    .badge{
-      font-size:11px;
-      padding:6px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
-      color:rgba(255,255,255,.9);
-    }
+.desc{
+font-size:12px;
+opacity:.8;
+}
 
-    .badge.hot{
-      border:none;
-      background:linear-gradient(90deg,var(--blue),var(--violet));
-      box-shadow:0 0 10px rgba(139,92,246,.35);
-    }
+/* buttons */
 
-    .title{ font-weight:900; font-size:14px; }
-    .desc{ font-size:12px; color:var(--muted); }
+.btns{
+margin-top:auto;
+display:flex;
+gap:8px;
+}
 
-    .btns{
-      margin-top:auto;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
+.button{
+flex:1;
+text-align:center;
+padding:10px;
+border-radius:10px;
+font-weight:800;
+font-size:13px;
+text-decoration:none;
+}
 
-    a.button{
-      text-decoration:none;
-      font-weight:900;
-      font-size:13px;
-      padding:10px 12px;
-      border-radius:12px;
-      display:inline-block;
-    }
+/* Shopee orange */
 
-    a.button.buy{
-      background:linear-gradient(90deg,var(--blue),var(--violet));
-      color:white;
-      box-shadow:0 0 12px rgba(139,92,246,.35);
-    }
+.buy{
+background:var(--shopee);
+color:white;
+}
 
-    a.button.alt{
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      color:white;
-    }
+/* TikTok black */
 
-    .empty{
-      grid-column:1/-1;
-      padding:14px;
-      border:1px dashed rgba(255,255,255,.18);
-      border-radius:18px;
-      opacity:.85;
-    }
+.tiktokbtn{
+background:var(--tiktok);
+color:white;
+}
 
-    .footer{
-      margin-top:16px;
-      font-size:12px;
-      opacity:.75;
-    }
-  </style>
+.footer{
+margin-top:16px;
+font-size:12px;
+opacity:.7;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="shell">
-      <div class="top">
-        <div class="brandline">
-          <div class="avatar">MA</div>
-          <div>
-            <h1>MachAI • Budol Links</h1>
-            <div class="sub">Nostalgia Factory 🧠✨ • Viral 90s snacks & Shopee finds</div>
-            <div class="note">✅ 13K followers • 400K likes • videos up to 2.5M views</div>
-          </div>
-        </div>
 
-        <div class="ctaRow">
-          <a class="cta primary" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">Follow on TikTok</a>
-          <a class="cta" href="mailto:ckbaniqued.business@gmail.com">Business Email</a>
-        </div>
-      </div>
+<div class="wrap">
+<div class="shell">
 
-      <div class="tools">
-        <div class="pillbar" id="filters">
-          <div class="pill active" data-cat="all">All</div>
-          <div class="pill" data-cat="trending">🔥 Trending</div>
-          <div class="pill" data-cat="nostalgia">Nostalgic Snacks</div>
-          <div class="pill" data-cat="drinks">Drinks</div>
-          <div class="pill" data-cat="tech">Tech/Gadgets</div>
-          <div class="pill" data-cat="budget">Under ₱99</div>
-        </div>
-        <input id="q" placeholder="Search (e.g. Mik-Mik, Nata, Oishi)..." />
-      </div>
+<div class="top">
 
-      <div class="sectionTitle">🔥 Featured / Trending</div>
-      <div class="grid" id="featured"></div>
+<div class="brand">
 
-      <div class="sectionTitle">🛒 All Products</div>
-      <div class="grid" id="list"></div>
+<div class="logo">
+<img src="logo.png">
+</div>
 
-      <div class="footer">
-        Disclosure: Some links may be affiliate links. If you buy through them, I may earn a small commission at no extra cost to you.
-      </div>
-    </div>
-  </div>
+<div>
+<b>MachAI • Product Links</b><br>
+<small>Nostalgia Factory • Viral 90s Snacks</small>
+<div class="note">13K followers • 2.5M views</div>
+</div>
 
-  <script>
-    // ✅ EDIT: palitan mo ng Shopee affiliate links mo
-    // ✅ Images: uploaded in your repo (case-sensitive)
-    const items = [
-      {
-        title: "Nata de Coco (Assorted)",
-        cat: "nostalgia",
-        desc: "Classic jelly snack. Perfect pang nostalgia content.",
-        link: "https://shopee.ph/",
-        image: "nata.png",
-        extra: "Viral snack",
-        tags: ["nostalgia", "trending"]
-      },
-      {
-        title: "Mik-Mik Milk Candy",
-        cat: "nostalgia",
-        desc: "Powder milk candy ng 90s kids. High recall sa 30s audience.",
-        link: "https://shopee.ph/",
-        image: "mikmik.JPG",
-        extra: "Classic budol",
-        tags: ["nostalgia", "trending"]
-      },
-      {
-        title: "Sweet Corn Snack",
-        cat: "nostalgia",
-        desc: "Budget nostalgic snack. Pang meryenda vibes.",
-        link: "https://shopee.ph/",
-        image: "sweetcorn.png",
-        extra: "Under ₱99",
-        tags: ["nostalgia", "budget"]
-      }
+</div>
 
-      // ✅ Add more products here
-      // { title:"...", cat:"tech", desc:"...", link:"...", image:"...", extra:"...", tags:["tech"] },
-    ];
+<div>
 
-    const q = document.getElementById("q");
-    const list = document.getElementById("list");
-    const featured = document.getElementById("featured");
+<a class="cta tiktok" href="https://www.tiktok.com/@mach.ai" target="_blank">
+TikTok Profile
+</a>
 
-    let activeCat = "all";
+</div>
 
-    function render(){
-      const query = (q.value || "").toLowerCase().trim();
+</div>
 
-      const matches = items.filter(x => {
-        const catOk =
-          activeCat === "all" ||
-          (activeCat === "trending" ? (x.tags || []).includes("trending") : x.cat === activeCat) ||
-          (x.tags || []).includes(activeCat);
+<div class="tools">
+<input id="search" placeholder="Search snacks...">
+</div>
 
-        const qOk = !query || (x.title + " " + x.desc + " " + (x.extra||"")).toLowerCase().includes(query);
-        return catOk && qOk;
-      });
+<div class="grid" id="list"></div>
 
-      const featuredItems = items.filter(x => (x.tags || []).includes("trending")).slice(0, 3);
+<div class="footer">
+Some links may be affiliate links.
+</div>
 
-      featured.innerHTML = featuredItems.map(x => cardHtml(x, true)).join("") || emptyHtml("No featured items yet.");
-      list.innerHTML = matches.map(x => cardHtml(x, false)).join("") || emptyHtml("No results. Try another keyword or choose All.");
-    }
+</div>
+</div>
 
-    function cardHtml(x, isFeatured){
-      const badge = isFeatured ? `<span class="badge hot">🔥 Trending</span>` : ``;
-      const catBadge = `<span class="badge">${labelCat(x.cat)}</span>`;
+<script>
 
-      return `
-        <div class="item">
-          <div class="img">
-            <img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy">
-          </div>
+const items=[
 
-          <div class="badgeRow">
-            ${badge}
-            ${catBadge}
-            ${x.extra ? `<span class="badge">${escapeHtml(x.extra)}</span>` : ``}
-          </div>
+{
+title:"Nata de Coco",
+desc:"Classic jelly snack from the 90's",
+image:"nata.png",
+link:"https://shopee.ph/"
+},
 
-          <div class="title">${escapeHtml(x.title)}</div>
-          <div class="desc">${escapeHtml(x.desc)}</div>
+{
+title:"Mik-Mik Milk Candy",
+desc:"Powder milk candy ng 90's kids",
+image:"mikmik.JPG",
+link:"https://shopee.ph/"
+},
 
-          <div class="btns">
-            <a class="button buy" href="${x.link}" target="_blank" rel="noopener" onclick="track('${escapeJs(x.title)}')">Buy on Shopee</a>
-            <a class="button alt" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">TikTok</a>
-          </div>
-        </div>
-      `;
-    }
+{
+title:"Sweet Corn Snack",
+desc:"Affordable nostalgic snack",
+image:"sweetcorn.png",
+link:"https://shopee.ph/"
+}
 
-    function emptyHtml(text){
-      return `<div class="empty">${escapeHtml(text)}</div>`;
-    }
+]
 
-    function labelCat(cat){
-      return ({
-        nostalgia: "Nostalgia",
-        drinks: "Drinks",
-        tech: "Tech",
-        budget: "Budget"
-      })[cat] || "Other";
-    }
+const container=document.getElementById("list")
+const search=document.getElementById("search")
 
-    function track(title){
-      console.log("Clicked:", title);
-      // Later: GA4 event tracking here
-    }
+function render(){
 
-    function escapeHtml(s){
-      return String(s ?? "").replace(/[&<>"']/g, m => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-      })[m]);
-    }
-    function escapeJs(s){ return String(s ?? "").replace(/'/g, "\\'"); }
+const q=search.value.toLowerCase()
 
-    document.getElementById("filters").addEventListener("click", (e) => {
-      const pill = e.target.closest(".pill");
-      if(!pill) return;
-      activeCat = pill.dataset.cat;
+container.innerHTML=""
 
-      document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
-      pill.classList.add("active");
-      render();
-    });
+items
+.filter(i=>i.title.toLowerCase().includes(q))
+.forEach(p=>{
 
-    q.addEventListener("input", render);
-    render();
-  </script>
+container.innerHTML+=`
+
+<div class="item">
+
+<div class="img">
+<img src="${p.image}">
+</div>
+
+<div class="title">${p.title}</div>
+<div class="desc">${p.desc}</div>
+
+<div class="btns">
+
+<a class="button buy" href="${p.link}" target="_blank">
+Shopee
+</a>
+
+<a class="button tiktokbtn" href="https://www.tiktok.com/@mach.ai" target="_blank">
+TikTok
+</a>
+
+</div>
+
+</div>
+
+`
+
+})
+
+}
+
+search.addEventListener("input",render)
+
+render()
+
+</script>
+
 </body>
 </html>
