@@ -59,8 +59,25 @@
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       display:flex; flex-direction:column; gap:10px;
-      min-height: 160px;
+      min-height: 220px;
     }
+
+    /* ✅ Product image */
+    .img{
+      width:100%;
+      height:120px;
+      border-radius:12px;
+      background: rgba(255,255,255,.06);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .tag{ font-size:12px; opacity:.85; }
     .title{ font-weight:700; }
     .desc{ font-size:12px; opacity:.8; }
@@ -118,13 +135,15 @@
   </div>
 
   <script>
-    // ✅ EDIT THESE ITEMS: palitan mo ng Shopee affiliate link mo
+    // ✅ EDIT THESE ITEMS: palitan mo ng Shopee affiliate link + image links
+    // Tip: gamitin mo yung product photo link (jpg/png) OR i-upload mo images sa repo mo then use relative paths like "images/nata.jpg"
     const items = [
       {
         title: "Nata de Coco (Assorted)",
         cat: "nostalgia",
-        desc: "Perfect pang nostalgia content. (Replace link with your Shopee link)",
+        desc: "Perfect pang nostalgia content. (Replace link + image)",
         link: "https://shopee.ph/",
+        image: "https://via.placeholder.com/600x400?text=Nata+de+Coco",
         extra: "Pinned video related"
       },
       {
@@ -132,6 +151,7 @@
         cat: "nostalgia",
         desc: "Classic 90s snack—high recall sa 30s audience.",
         link: "https://shopee.ph/",
+        image: "https://via.placeholder.com/600x400?text=Mik-Mik",
         extra: "Viral-friendly"
       },
       {
@@ -139,6 +159,7 @@
         cat: "nostalgia",
         desc: "Budget snack, easy budol.",
         link: "https://shopee.ph/",
+        image: "https://via.placeholder.com/600x400?text=Sweet+Corn",
         extra: "Under ₱99"
       },
       {
@@ -146,6 +167,7 @@
         cat: "tech",
         desc: "For better voiceover sa TikTok.",
         link: "https://shopee.ph/",
+        image: "https://via.placeholder.com/600x400?text=Clip+Mic",
         extra: "Creator essential"
       },
       {
@@ -153,6 +175,7 @@
         cat: "drinks",
         desc: "Bagay sa “nostalgic drinks” content.",
         link: "https://shopee.ph/",
+        image: "https://via.placeholder.com/600x400?text=Gummies",
         extra: "Snack + drink combo"
       }
     ];
@@ -171,6 +194,9 @@
 
       list.innerHTML = filtered.map(x => `
         <div class="item">
+          <div class="img">
+            <img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy" />
+          </div>
           <div class="tag">${labelCat(x.cat)} • ${escapeHtml(x.extra || "")}</div>
           <div class="title">${escapeHtml(x.title)}</div>
           <div class="desc">${escapeHtml(x.desc)}</div>
@@ -199,9 +225,8 @@
     }
 
     function track(title){
-      // Optional: simple click tracking (shows in console)
       console.log("Clicked:", title);
-      // If you add Google Analytics later, you can hook events here.
+      // Later: add GA4 event tracking here if you want.
     }
 
     function escapeHtml(s){
