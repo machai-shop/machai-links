@@ -24,421 +24,438 @@
 
 *{box-sizing:border-box}
 
-/* FIX SAFARI BACKGROUND SEAM */
-
-html, body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
-  overflow-x:hidden;
-  background:#0f172a;
+html,body{
+margin:0;
+padding:0;
+width:100%;
+min-height:100%;
+overflow-x:hidden;
+background:#0f172a;
 }
 
 body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  color:var(--text);
-  line-height:1.35;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+color:var(--text);
+line-height:1.35;
 }
 
-/* FULLSCREEN GRADIENT BACKGROUND */
+/* background */
 
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
 
-  background:
-    radial-gradient(1200px 900px at 15% 0%, rgba(139,92,246,.45), transparent 60%),
-    radial-gradient(900px 700px at 95% 15%, rgba(59,130,246,.35), transparent 55%),
-    linear-gradient(160deg, #0f172a, #1e1b4b);
+background:
+radial-gradient(1200px 900px at 15% 0%, rgba(139,92,246,.45), transparent 60%),
+radial-gradient(900px 700px at 95% 15%, rgba(59,130,246,.35), transparent 55%),
+linear-gradient(160deg,#0f172a,#1e1b4b);
 
-  transform:translateZ(0);
-  -webkit-transform:translateZ(0);
+transform:translateZ(0);
 }
 
-/* CONTAINER */
+/* layout */
 
 .wrap{
-  width:100%;
-  max-width:980px;
-  margin:0 auto;
-  padding:20px;
+max-width:980px;
+margin:auto;
+padding:18px;
 }
 
 .shell{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:20px;
-  padding:20px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 40px rgba(139,92,246,.15);
-
-  transform:translateZ(0);
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(139,92,246,.15);
 }
 
-/* HEADER */
+/* header */
 
 .top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:12px;
 }
 
 .brand{
-  display:flex;
-  gap:12px;
-  align-items:center;
+display:flex;
+gap:12px;
+align-items:center;
 }
 
 .logo{
-  width:56px;
-  height:56px;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.06);
+width:56px;
+height:56px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.2);
 }
 
 .logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 h1{
-  margin:0;
-  font-size:18px;
+margin:0;
+font-size:18px;
 }
 
 .sub{
-  font-size:13px;
-  opacity:.9;
-  margin-top:4px;
+font-size:13px;
+opacity:.9;
+margin-top:4px;
 }
 
 .note{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:4px;
+font-size:12px;
+color:var(--muted);
+margin-top:4px;
 }
 
-/* HEADER BUTTONS */
+/* buttons */
 
 .ctaRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
 }
 
 .cta{
-  padding:12px 18px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:13px;
-  display:inline-block;
-  color:#fff;
+padding:12px 18px;
+border-radius:14px;
+text-decoration:none;
+font-weight:800;
+font-size:13px;
+color:white;
 }
 
 .follow{
-  background:linear-gradient(90deg,var(--blue),var(--violet));
-  box-shadow:0 0 14px rgba(139,92,246,.4);
+background:linear-gradient(90deg,var(--blue),var(--violet));
+box-shadow:0 0 14px rgba(139,92,246,.4);
 }
 
 .profile{
-  background:#000;
-  border:1px solid rgba(255,255,255,.2);
+background:#000;
+border:1px solid rgba(255,255,255,.2);
 }
 
-/* SEARCH */
+/* search */
 
 .search{
-  margin-top:16px;
+margin-top:16px;
 }
 
 input{
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.05);
-  color:white;
-  outline:none;
+width:100%;
+padding:12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.2);
+background:rgba(255,255,255,.05);
+color:white;
 }
 
-/* SECTIONS */
+/* section */
 
 .sectionTitle{
-  margin-top:22px;
-  font-weight:900;
-  font-size:14px;
+margin-top:22px;
+font-weight:900;
+font-size:14px;
 }
 
-/* GRID */
+/* responsive grid */
 
 .grid{
-  margin-top:12px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+margin-top:12px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:12px;
 }
 
-@media (min-width:760px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-}
-
-/* CARDS */
+/* cards */
 
 .item{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  transition:.2s;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+border-radius:16px;
+padding:12px;
+display:flex;
+flex-direction:column;
+gap:10px;
+transition:.2s;
 }
 
 .item:hover{
-  transform:translateY(-4px);
-  box-shadow:0 8px 24px rgba(139,92,246,.25);
+transform:translateY(-4px);
+box-shadow:0 8px 24px rgba(139,92,246,.25);
 }
 
 .img{
-  height:140px;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.06);
+height:160px;
+border-radius:12px;
+overflow:hidden;
 }
 
 .img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* BADGE */
-
-.badges{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
+/* badge */
 
 .badge{
-  font-size:11px;
-  padding:4px 8px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--blue),var(--violet));
+font-size:11px;
+padding:4px 8px;
+border-radius:999px;
+background:linear-gradient(90deg,var(--blue),var(--violet));
+display:inline-block;
 }
 
-/* TEXT */
+/* text */
 
 .title{
-  font-weight:800;
-  font-size:14px;
+font-weight:800;
+font-size:14px;
 }
 
 .desc{
-  font-size:12px;
-  opacity:.8;
+font-size:12px;
+opacity:.8;
 }
 
-/* BUTTONS */
+/* buttons */
 
 .btns{
-  margin-top:auto;
-  display:flex;
-  gap:8px;
+margin-top:auto;
+display:flex;
+gap:8px;
 }
 
 .button{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:10px;
-  border-radius:10px;
-  font-weight:800;
-  font-size:13px;
-  text-decoration:none;
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:6px;
+padding:10px;
+border-radius:10px;
+font-weight:800;
+font-size:13px;
+text-decoration:none;
 }
 
 .icon{
-  width:16px;
-  height:16px;
+width:16px;
+height:16px;
 }
 
-/* Shopee disabled */
+/* shopee disabled */
 
 button.buy{
-  background:#666;
-  color:#fff;
-  border:none;
-  opacity:.6;
-  cursor:not-allowed;
+background:#666;
+color:#fff;
+border:none;
+opacity:.6;
+cursor:not-allowed;
 }
 
-/* TikTok button */
+/* tiktok */
 
 a.tiktok{
-  background:#000;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.12);
+background:#000;
+color:#fff;
+border:1px solid rgba(255,255,255,.12);
 }
 
 .footer{
-  margin-top:16px;
-  font-size:12px;
-  opacity:.7;
+margin-top:16px;
+font-size:12px;
+opacity:.7;
 }
 
 </style>
 </head>
 
 <body>
+
 <div class="wrap">
 <div class="shell">
 
-  <div class="top">
-    <div class="brand">
-      <div class="logo">
-        <img src="logo.png" alt="MachAI logo">
-      </div>
+<div class="top">
 
-      <div>
-        <h1>MachAI • Product Links</h1>
-        <div class="sub">Nostalgia Factory 🧠✨ • Viral 90s Snacks</div>
-        <div class="note">13K followers • 400K likes • videos up to 2.5M views</div>
-      </div>
-    </div>
+<div class="brand">
 
-    <div class="ctaRow">
-      <a class="cta follow" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">Follow on TikTok</a>
-      <a class="cta profile" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">@mach.ai</a>
-    </div>
-  </div>
+<div class="logo">
+<img src="logo.png">
+</div>
 
-  <div class="search">
-    <input id="search" placeholder="Search products...">
-  </div>
+<div>
+<h1>MachAI • Product Links</h1>
+<div class="sub">Nostalgia Factory 🧠✨ • Viral 90s Snacks</div>
+<div class="note">13K followers • 400K likes • videos up to 2.5M views</div>
+</div>
 
-  <div class="sectionTitle">⭐ Trending Products</div>
-  <div class="grid" id="featured"></div>
+</div>
 
-  <div class="sectionTitle">🛒 All Products</div>
-  <div class="grid" id="list"></div>
+<div class="ctaRow">
 
-  <div class="footer">Some links may be affiliate links.</div>
+<a class="cta follow" href="https://www.tiktok.com/@mach.ai" target="_blank">
+Follow on TikTok
+</a>
+
+<a class="cta profile" href="https://www.tiktok.com/@mach.ai" target="_blank">
+@mach.ai
+</a>
+
+</div>
+
+</div>
+
+<div class="search">
+<input id="search" placeholder="Search products...">
+</div>
+
+<div class="sectionTitle">⭐ Trending Products</div>
+<div class="grid" id="featured"></div>
+
+<div class="sectionTitle">🛒 All Products</div>
+<div class="grid" id="list"></div>
+
+<div class="footer">
+Some links may be affiliate links.
+</div>
 
 </div>
 </div>
 
 <script>
-const items = [
-  {
-    title: "Nata de Coco",
-    desc: "Classic jelly snack from the 90's",
-    image: "nata.png",
-    tiktok: "https://vt.tiktok.com/ZS9dNXPNCM4kD-c1emm/",
-    tags: ["trending"]
-  },
-  {
-    title: "Mik-Mik Milk Candy",
-    desc: "Powder milk candy ng 90's kids",
-    image: "mikmik.JPG",
-    tiktok: "https://vt.tiktok.com/ZS9dNQUNKT74j-kuv0A/",
-    tags: ["trending"]
-  },
-  {
-    title: "Sweet Corn Snack",
-    desc: "Affordable nostalgic snack",
-    image: "sweetcorn.png",
-    tiktok: "https://vt.tiktok.com/ZS9dNQ79tWTTR-j7S1d/",
-    tags: []
-  }
-];
 
-const container = document.getElementById("list");
-const featured = document.getElementById("featured");
-const search = document.getElementById("search");
+const items=[
 
-function escapeHtml(s){
-  return String(s ?? "").replace(/[&<>"']/g, m => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  })[m]);
+{
+title:"Nata de Coco",
+desc:"Classic jelly snack from the 90's",
+image:"nata.png",
+tiktok:"https://vt.tiktok.com/ZS9dNQqKhFewm-gTdGD/",
+tags:["trending"]
+},
+
+{
+title:"Mik-Mik Milk Candy",
+desc:"Powder milk candy ng 90's kids",
+image:"mikmik.JPG",
+tiktok:"https://vt.tiktok.com/ZS9dNQUNKT74j-kuv0A/",
+tags:["trending"]
+},
+
+{
+title:"Sweet Corn Snack",
+desc:"Affordable nostalgic snack",
+image:"sweetcorn.png",
+tiktok:"https://vt.tiktok.com/ZS9dNQ79tWTTR-j7S1d/",
+tags:[]
+},
+
+{
+title:"Iced Gem Biscuits",
+desc:"Classic colorful biscuit ng 90's kids",
+image:"icedgembiscuits.JPG",
+tiktok:"https://vt.tiktok.com/ZS9dNbkS8cb56-HMOap/",
+tags:["trending"]
 }
 
+]
+
+const container=document.getElementById("list")
+const featured=document.getElementById("featured")
+const search=document.getElementById("search")
+
 function card(p){
-  const badge = (p.tags || []).includes("trending")
-    ? `<span class="badge">⭐ Trending</span>`
-    : "";
 
-  return `
-    <div class="item">
-      <div class="img">
-        <img src="${p.image}" alt="${escapeHtml(p.title)}">
-      </div>
+let badge=""
+if(p.tags.includes("trending"))
+badge=`<span class="badge">⭐ Trending</span>`
 
-      <div class="badges">${badge}</div>
+return`
 
-      <div class="title">${escapeHtml(p.title)}</div>
-      <div class="desc">${escapeHtml(p.desc)}</div>
+<div class="item">
 
-      <div class="btns">
-        <button class="button buy" disabled>
-          <!-- Shopee icon (simple bag) -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M7 6V5a5 5 0 0 1 10 0v1h2l-1 16H6L5 6h2zm2 0h6V5a3 3 0 0 0-6 0v1z"/>
-          </svg>
-          Shopee
-        </button>
+<div class="img">
+<img src="${p.image}">
+</div>
 
-        <a class="button tiktok" href="${p.tiktok}" target="_blank" rel="noopener">
-          <!-- TikTok-ish note icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M16 2c.6 3.2 2.7 5.3 6 5.7V10c-1.8 0-3.4-.6-4.7-1.6v6.2A6.6 6.6 0 1 1 10 8.3v2.8a3.8 3.8 0 1 0 4.3 3.7V2H16z"/>
-          </svg>
-          TikTok
-        </a>
-      </div>
-    </div>
-  `;
+${badge}
+
+<div class="title">${p.title}</div>
+
+<div class="desc">${p.desc}</div>
+
+<div class="btns">
+
+<button class="button buy">
+
+<svg class="icon" viewBox="0 0 24 24" fill="white">
+<path d="M6 2L4 6v14h16V6l-2-4H6zm2 4V4h8v2H8z"/>
+</svg>
+
+Shopee
+
+</button>
+
+<a class="button tiktok" href="${p.tiktok}" target="_blank">
+
+<svg class="icon" viewBox="0 0 24 24" fill="white">
+<path d="M19 8.3a7.7 7.7 0 0 1-4.3-1.3v8.5a5 5 0 1 1-4.3-5V13a2.6 2.6 0 1 0 1.8 2.5V2h2.5a5.2 5.2 0 0 0 4.3 4.3v2z"/>
+</svg>
+
+TikTok
+
+</a>
+
+</div>
+
+</div>
+
+`
+
 }
 
 function render(){
-  const q = search.value.toLowerCase().trim();
 
-  container.innerHTML = "";
-  featured.innerHTML = "";
+let q=search.value.toLowerCase()
 
-  const results = items.filter(i => i.title.toLowerCase().includes(q));
+container.innerHTML=""
+featured.innerHTML=""
 
-  if(q === ""){
-    // show trending only if no search
-    items
-      .filter(i => (i.tags || []).includes("trending"))
-      .forEach(p => featured.innerHTML += card(p));
+let results=items.filter(i=>i.title.toLowerCase().includes(q))
 
-    items.forEach(p => container.innerHTML += card(p));
-  }else{
-    // hide trending when searching; show only results
-    results.forEach(p => container.innerHTML += card(p));
-  }
+if(q===""){
+
+items
+.filter(i=>i.tags.includes("trending"))
+.forEach(p=>featured.innerHTML+=card(p))
+
+items.forEach(p=>container.innerHTML+=card(p))
+
+}else{
+
+results.forEach(p=>container.innerHTML+=card(p))
+
 }
 
-search.addEventListener("input", render);
-render();
+}
+
+search.addEventListener("input",render)
+
+render()
+
 </script>
 
 </body>
