@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>machAI Product Links</title>
+  <meta name="description" content="My curated Shopee budol links + nostalgic finds." />
+  <style>
+    :root { --r: 16px; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#0b0b0f; color:#fff; line-height:1.35;
+    }
+    .wrap{ max-width:920px; margin:0 auto; padding:18px; }
+    .card{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+    .top{
+      display:flex; gap:14px; align-items:center;
+    }
+    .avatar{
+      width:54px; height:54px; border-radius:14px;
+      background: linear-gradient(135deg, #4dd0ff, #7c4dff);
+      display:grid; place-items:center; font-weight:800;
+    }
+    h1{ margin:0; font-size:18px; }
+    .sub{ opacity:.85; font-size:13px; margin-top:4px; }
+    .pillbar{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .pill{
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      padding:8px 10px; border-radius:999px;
+      font-size:13px; cursor:pointer; user-select:none;
+    }
+    .pill.active{ background: rgba(77,208,255,.18); border-color: rgba(77,208,255,.45); }
+    .search{
+      margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;
+    }
+    input{
+      flex:1; min-width:220px;
+      padding:12px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color:#fff; outline:none;
+    }
+    .grid{
+      margin-top:14px;
+      display:grid; gap:12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (min-width:720px){ .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .item{
+      border-radius:18px; padding:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      display:flex; flex-direction:column; gap:10px;
+      min-height: 160px;
+    }
+    .tag{ font-size:12px; opacity:.85; }
+    .title{ font-weight:700; }
+    .desc{ font-size:12px; opacity:.8; }
+    .btn{
+      margin-top:auto;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    a.button{
+      text-decoration:none; color:#0b0b0f; font-weight:700; font-size:13px;
+      padding:10px 12px; border-radius:14px;
+      background: #4dd0ff;
+      display:inline-block;
+    }
+    a.ghost{
+      text-decoration:none; color:#fff; font-weight:700; font-size:13px;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+      display:inline-block;
+    }
+    .footer{ margin-top:14px; font-size:12px; opacity:.75; }
+    .note{ margin-top:10px; font-size:12px; opacity:.8; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="avatar">MA</div>
+        <div>
+          <h1>machAI • Budol Links</h1>
+          <div class="sub">Nostalgia Factory 🧠✨ • Shopee finds & viral 90s snacks</div>
+          <div class="note">✅ 13K followers • 400K likes • videos up to 2.5M views</div>
+        </div>
+      </div>
+
+      <div class="pillbar" id="filters">
+        <div class="pill active" data-cat="all">All</div>
+        <div class="pill" data-cat="nostalgia">Nostalgic Snacks</div>
+        <div class="pill" data-cat="drinks">Drinks</div>
+        <div class="pill" data-cat="tech">Tech/Gadgets</div>
+        <div class="pill" data-cat="budget">Under ₱99</div>
+      </div>
+
+      <div class="search">
+        <input id="q" placeholder="Search (e.g. Mik-Mik, Nata de coco, Oishi)..." />
+      </div>
+
+      <div class="grid" id="list"></div>
+
+      <div class="footer">
+        Disclosure: Some links may be affiliate links. If you buy through them, I may earn a small commission at no extra cost to you.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ EDIT THESE ITEMS: palitan mo ng Shopee affiliate link mo
+    const items = [
+      {
+        title: "Nata de Coco (Assorted)",
+        cat: "nostalgia",
+        desc: "Perfect pang nostalgia content. (Replace link with your Shopee link)",
+        link: "https://shopee.ph/",
+        extra: "Pinned video related"
+      },
+      {
+        title: "Mik-Mik Milk Candy",
+        cat: "nostalgia",
+        desc: "Classic 90s snack—high recall sa 30s audience.",
+        link: "https://shopee.ph/",
+        extra: "Viral-friendly"
+      },
+      {
+        title: "Sweet Corn Snack",
+        cat: "nostalgia",
+        desc: "Budget snack, easy budol.",
+        link: "https://shopee.ph/",
+        extra: "Under ₱99"
+      },
+      {
+        title: "Affordable Clip Mic",
+        cat: "tech",
+        desc: "For better voiceover sa TikTok.",
+        link: "https://shopee.ph/",
+        extra: "Creator essential"
+      },
+      {
+        title: "Soda Bottle Candy / Gummies",
+        cat: "drinks",
+        desc: "Bagay sa “nostalgic drinks” content.",
+        link: "https://shopee.ph/",
+        extra: "Snack + drink combo"
+      }
+    ];
+
+    let activeCat = "all";
+    const list = document.getElementById("list");
+    const q = document.getElementById("q");
+
+    function render(){
+      const query = (q.value || "").toLowerCase().trim();
+      const filtered = items.filter(x => {
+        const catOk = activeCat === "all" || x.cat === activeCat;
+        const qOk = !query || (x.title + " " + x.desc + " " + x.extra).toLowerCase().includes(query);
+        return catOk && qOk;
+      });
+
+      list.innerHTML = filtered.map(x => `
+        <div class="item">
+          <div class="tag">${labelCat(x.cat)} • ${escapeHtml(x.extra || "")}</div>
+          <div class="title">${escapeHtml(x.title)}</div>
+          <div class="desc">${escapeHtml(x.desc)}</div>
+          <div class="btn">
+            <a class="button" href="${x.link}" target="_blank" rel="noopener" onclick="track('${escapeJs(x.title)}')">Buy on Shopee</a>
+            <a class="ghost" href="https://www.tiktok.com/@mach.ai" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      `).join("");
+
+      if(!filtered.length){
+        list.innerHTML = `<div class="item" style="grid-column:1/-1;">
+          <div class="title">No results</div>
+          <div class="desc">Try a different keyword or choose "All".</div>
+        </div>`;
+      }
+    }
+
+    function labelCat(cat){
+      return ({
+        nostalgia: "Nostalgia",
+        drinks: "Drinks",
+        tech: "Tech",
+        budget: "Budget"
+      })[cat] || "Other";
+    }
+
+    function track(title){
+      // Optional: simple click tracking (shows in console)
+      console.log("Clicked:", title);
+      // If you add Google Analytics later, you can hook events here.
+    }
+
+    function escapeHtml(s){
+      return String(s ?? "").replace(/[&<>"']/g, m => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+      })[m]);
+    }
+    function escapeJs(s){ return String(s ?? "").replace(/'/g, "\\'"); }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const pill = e.target.closest(".pill");
+      if(!pill) return;
+      activeCat = pill.dataset.cat;
+      document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      render();
+    });
+
+    q.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
