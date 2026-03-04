@@ -15,7 +15,6 @@
   --blue:#3b82f6;
   --violet:#8b5cf6;
 
-  --shopee:#ee4d2d;
   --tiktok:#000;
 
   --text:#ffffff;
@@ -169,7 +168,7 @@ font-weight:900;
 font-size:14px;
 }
 
-/* grid (always 2 per row) */
+/* grid */
 
 .grid{
 margin-top:12px;
@@ -230,16 +229,13 @@ font-size:12px;
 opacity:.8;
 }
 
-/* buttons */
+/* button */
 
 .btns{
 margin-top:auto;
-display:flex;
-gap:8px;
 }
 
 .button{
-flex:1;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -249,29 +245,14 @@ border-radius:10px;
 font-weight:800;
 font-size:13px;
 text-decoration:none;
+background:#000;
+color:#fff;
+border:1px solid rgba(255,255,255,.12);
 }
 
 .icon{
 width:16px;
 height:16px;
-}
-
-/* shopee disabled */
-
-button.buy{
-background:#666;
-color:#fff;
-border:none;
-opacity:.6;
-cursor:not-allowed;
-}
-
-/* tiktok */
-
-a.tiktok{
-background:#000;
-color:#fff;
-border:1px solid rgba(255,255,255,.12);
 }
 
 .footer{
@@ -399,17 +380,7 @@ ${badge}
 
 <div class="btns">
 
-<button class="button buy">
-
-<svg class="icon" viewBox="0 0 24 24" fill="white">
-<path d="M6 2L4 6v14h16V6l-2-4H6zm2 4V4h8v2H8z"/>
-</svg>
-
-Shopee
-
-</button>
-
-<a class="button tiktok" href="${p.tiktok}" target="_blank">
+<a class="button" href="${p.tiktok}" target="_blank">
 
 <svg class="icon" viewBox="0 0 24 24" fill="white">
 <path d="M19 8.3a7.7 7.7 0 0 1-4.3-1.3v8.5a5 5 0 1 1-4.3-5V13a2.6 2.6 0 1 0 1.8 2.5V2h2.5a5.2 5.2 0 0 0 4.3 4.3v2z"/>
